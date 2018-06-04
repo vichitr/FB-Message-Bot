@@ -2,12 +2,12 @@
 Python script to automate FB messanging   
 
 ## Prerequisites 
-- Selenium 
+- Selenium WebDriver
 - Python 3
 - Chrome Browser
 
 ## How to run
-- install selenium using following command   
+- Install selenium using following command   
 ```python
 pip install selenium
 ```
