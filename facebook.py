@@ -15,22 +15,10 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support import expected_conditions as EC
 from time import sleep 
 
-#method to decode my own password
-def decode(passwd):
-	p=chr(ord('z')+11)
-	q=chr(ord('x')+32)
-	r=chr(20)
-	s = 'v2'+p+'<'+q+' m'+r+'g'
-	
-	pw=''
-	for i in range(len(passwd)):
-		pw+=chr(ord(s[i])+((-1)**(i+1))*ord(passwd[i]))
-	return pw
-
 #data
 URL_TO_FB='https://www.facebook.com/'
 USERNAME='YOUR EMAIL/PHONE'
-PASSWORD='YOUR PASSWORD' #decode('(3 0# <!5')
+PASSWORD='YOUR PASSWORD'
 FRIEND='YOUR FRIEND NAME'
 MESSAGE="Hi! I'm a Bot created by vichitr Gandas. :)"
 
@@ -64,12 +52,6 @@ message = browser.find_element_by_xpath("//div[@class='notranslate _5rpu']")
 message.send_keys(MESSAGE)
 message.send_keys(Keys.ENTER)
 sleep(1)
-
-#logout 
-menu = browser.find_element_by_xpath("//div[@id='logoutMenu']")
-browser.execute_script("arguments[0].click();",menu)
-logout = browser.find_element_by_xpath("//*[@class='_54nc']")
-browser.execute_script("argument[0].click();",logout)
 
 #close the browser
 browser.close()
